@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Hubble's Universe — Standalone</title>
+<meta content="Educational resource explaining Hubble's Law and the expansion of the universe." name="description"/>
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {},
+        }
+      }
+    }
+  </script>
+<!-- Lucide Icons (vanilla) -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+    html, body { scroll-behavior: smooth; }
+    /* Hide default focus outlines but keep accessibility via ring */
+    :focus { outline: none; }
+    .btn-gradient {
+      @apply bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white border-0 text-lg px-8 py-3 rounded-full shadow-lg transition-all duration-300;
+    }
+    .card {
+      @apply rounded-2xl border bg-slate-800/50 border-white/10 backdrop-blur-sm shadow-lg;
+    }
+    .badge {
+      @apply inline-flex items-center gap-1 rounded-full border px-3 py-1 text-sm;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-slate-900 via-purple-900 to-slate-900 text-white overflow-x-hidden">
+<!-- Navigation -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-purple-500/20" id="topnav">
+<div class="max-w-6xl mx-auto px-4 py-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<i class="w-6 h-6 text-purple-400" data-lucide="telescope"></i>
+<span class="text-lg font-bold">Hubble's Universe</span>
+</div>
+<div class="hidden md:flex items-center gap-6" id="nav-links">
+<button class="navlink text-sm font-medium text-gray-300 hover:text-white transition-colors" data-target="hubbles-law">Hubble's Law</button>
+<button class="navlink text-sm font-medium text-gray-300 hover:text-white transition-colors" data-target="evidence">Evidence</button>
+<button class="navlink text-sm font-medium text-gray-300 hover:text-white transition-colors" data-target="key-figures">Key Figures</button>
+<button class="navlink text-sm font-medium text-gray-300 hover:text-white transition-colors" data-target="modern-discoveries">Modern Discoveries</button>
+</div>
+</div>
+</div>
+</nav>
+<!-- Hero -->
+<section class="min-h-screen flex items-center justify-center relative overflow-hidden" id="hero">
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=1920')] bg-cover bg-center opacity-20"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/50 to-slate-900"></div>
+<div class="relative z-10 text-center max-w-4xl mx-auto px-4">
+<div class="mb-8">
+<span class="badge mb-4 bg-purple-500/20 text-purple-300 border-purple-500/30">Cosmology &amp; Astrophysics</span>
+<h1 class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-purple-200 to-blue-200 bg-clip-text text-transparent">
+          Hubble's Law
+        </h1>
+<h2 class="text-2xl md:text-3xl font-light mb-8 text-gray-300">
+          &amp; the Expansion of the Universe
+        </h2>
+<p class="text-lg md:text-xl text-gray-300/80 max-w-2xl mx-auto leading-relaxed">
+          Discover how Edwin Hubble's observations revealed our universe is constantly expanding, changing our understanding of the cosmos.
+        </p>
+</div>
+<button class="btn-gradient inline-flex items-center gap-2" id="cta">
+        Explore the Universe
+        <i class="w-5 h-5 animate-bounce" data-lucide="chevron-down"></i>
+</button>
+</div>
+<div class="absolute bottom-8 left-1/2 -translate-x-1/2">
+<div class="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
+<div class="w-1 h-3 bg-gray-400 rounded-full mt-2 animate-bounce"></div>
+</div>
+</div>
+</section>
+<!-- Hubble's Law -->
+<section class="py-20 px-4" id="hubbles-law">
+<div class="max-w-6xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+          What is Hubble's Law?
+        </h2>
+<p class="text-xl text-gray-300/80 max-w-3xl mx-auto">
+          The principle that describes how fast galaxies move away from us.
+        </p>
+</div>
+<div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+<div class="space-y-6">
+<div class="card border-purple-500/20">
+<div class="p-6 md:p-8">
+<h3 class="text-2xl text-purple-400 font-semibold mb-4">The Discovery</h3>
+<div class="text-gray-300 space-y-4">
+<p>In 1929, Edwin Hubble found that distant galaxies are moving away from us, and the farther they are, the faster they move.</p>
+<p class="font-semibold text-white">Hubble's Law: v = H₀ × d</p>
+<p class="text-sm text-gray-300/80">Where v is velocity, H₀ is Hubble's constant, and d is distance.</p>
+</div>
+</div>
+</div>
+<div class="card border-blue-500/20">
+<div class="p-6 md:p-8">
+<h3 class="text-2xl text-blue-400 font-semibold mb-4">Why It Matters</h3>
+<div class="text-gray-300 space-y-4">
+<p>The discovery showed the universe expands everywhere, like an inflating balloon, supporting the Big Bang theory.</p>
+<p>Hubble's Law helps measure distances to far-off galaxies and understand the universe's history and future.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<div class="relative">
+<img alt="Spiral Galaxy" class="w-full h-80 object-cover rounded-2xl shadow-2xl" src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=800"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent rounded-2xl"></div>
+<p class="absolute bottom-4 left-4 text-white font-medium">Spiral Galaxy — Moving Away</p>
+</div>
+<div class="relative">
+<img alt="Galaxy Cluster" class="w-full h-80 object-cover rounded-2xl shadow-2xl" src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?w=800"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent rounded-2xl"></div>
+<p class="absolute bottom-4 left-4 text-white font-medium">Galaxy Cluster — Expanding Universe</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Evidence -->
+<section class="py-20 px-4 bg-slate-800/30" id="evidence">
+<div class="max-w-6xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+          The Evidence
+        </h2>
+<p class="text-xl text-gray-300/80 max-w-3xl mx-auto">Multiple lines of evidence support the expanding universe.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8 mb-16">
+<div class="card border-red-500/30 bg-gradient-to-b from-red-500/10 to-slate-800/30 text-center">
+<div class="p-6">
+<i class="w-12 h-12 text-red-400 mx-auto mb-4" data-lucide="atom"></i>
+<h3 class="text-xl text-red-400 font-semibold mb-2">Redshift</h3>
+<p class="text-gray-300">Light from receding galaxies is stretched to longer (redder) wavelengths. Faster recession → more redshift.</p>
+</div>
+</div>
+<div class="card border-orange-500/30 bg-gradient-to-b from-orange-500/10 to-slate-800/30 text-center">
+<div class="p-6">
+<i class="w-12 h-12 text-orange-400 mx-auto mb-4" data-lucide="zap"></i>
+<h3 class="text-xl text-orange-400 font-semibold mb-2">Big Bang</h3>
+<p class="text-gray-300">If galaxies are moving apart now, they were closer in the past — leading to a hot, dense beginning.</p>
+</div>
+</div>
+<div class="card border-blue-500/30 bg-gradient-to-b from-blue-500/10 to-slate-800/30 text-center">
+<div class="p-6">
+<i class="w-12 h-12 text-blue-400 mx-auto mb-4" data-lucide="telescope"></i>
+<h3 class="text-xl text-blue-400 font-semibold mb-2">CMB</h3>
+<p class="text-gray-300">The Cosmic Microwave Background is the afterglow of the Big Bang, detected in all directions.</p>
+</div>
+</div>
+</div>
+<div class="grid md:grid-cols-2 gap-8">
+<div class="relative">
+<img alt="Cosmic Background" class="w-full h-64 object-cover rounded-2xl shadow-2xl" src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent rounded-2xl"></div>
+<p class="absolute bottom-4 left-4 text-white font-medium">Cosmic Microwave Background Map</p>
+</div>
+<div class="relative">
+<img alt="Milky Way" class="w-full h-64 object-cover rounded-2xl shadow-2xl" src="https://images.unsplash.com/photo-1543722530-d2c3201371e7?w=800"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent rounded-2xl"></div>
+<p class="absolute bottom-4 left-4 text-white font-medium">The Milky Way Galaxy</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Key Figures -->
+<section class="py-20 px-4" id="key-figures">
+<div class="max-w-6xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+          Key Figures
+        </h2>
+<p class="text-xl text-gray-300/80 max-w-3xl mx-auto">Minds that transformed our understanding of the universe.</p>
+</div>
+<div class="grid md:grid-cols-2 gap-12">
+<div class="card border-purple-500/30 bg-gradient-to-br from-purple-500/10 via-slate-800/40 to-blue-500/10">
+<div class="p-8 text-center">
+<div class="w-24 h-24 rounded-full mx-auto mb-4 bg-gradient-to-br from-purple-400 to-blue-400 flex items-center justify-center">
+<i class="w-12 h-12 text-white" data-lucide="users"></i>
+</div>
+<h3 class="text-2xl text-purple-300 font-semibold">Edwin Hubble</h3>
+<p class="text-gray-400 mb-4">1889–1953</p>
+<p class="text-gray-300">American astronomer who provided evidence the universe expands, using the 100-inch Mount Wilson telescope.</p>
+<p class="text-gray-300 mt-3">His 1929 observations led to Hubble's Law. The Hubble Space Telescope honors his legacy.</p>
+<div class="pt-3">
+<span class="badge border-purple-300 text-purple-300">Key Discovery: Expanding Universe</span>
+</div>
+</div>
+</div>
+<div class="card border-green-500/30 bg-gradient-to-br from-green-500/10 via-slate-800/40 to-teal-500/10">
+<div class="p-8 text-center">
+<div class="w-24 h-24 rounded-full mx-auto mb-4 bg-gradient-to-br from-green-400 to-teal-400 flex items-center justify-center">
+<i class="w-12 h-12 text-white" data-lucide="users"></i>
+</div>
+<h3 class="text-2xl text-green-300 font-semibold">Georges Lemaître</h3>
+<p class="text-gray-400 mb-4">1894–1966</p>
+<p class="text-gray-300">Belgian physicist who proposed the “primeval atom” — the early idea of the Big Bang — deriving expansion from Einstein's equations.</p>
+<p class="text-gray-300 mt-3">Hubble's later observations supported his theoretical insight.</p>
+<div class="pt-3">
+<span class="badge border-green-300 text-green-300">Key Discovery: Big Bang Theory</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Modern Discoveries -->
+<section class="py-20 px-4 bg-slate-800/30" id="modern-discoveries">
+<div class="max-w-6xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+          Modern Discoveries
+        </h2>
+<p class="text-xl text-gray-300/80 max-w-3xl mx-auto">Recent breakthroughs continue to expand our cosmic knowledge.</p>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+<div class="card border-cyan-500/30 text-center">
+<div class="p-6">
+<i class="w-12 h-12 text-cyan-400 mx-auto mb-4" data-lucide="telescope"></i>
+<h3 class="text-lg font-bold text-cyan-300 mb-2">WMAP Survey</h3>
+<p class="text-gray-300 text-sm">Detailed CMB maps refined the universe's age to ~13.8 billion years.</p>
+</div>
+</div>
+<div class="card border-purple-500/30 text-center">
+<div class="p-6">
+<i class="w-12 h-12 text-purple-400 mx-auto mb-4" data-lucide="atom"></i>
+<h3 class="text-lg font-bold text-purple-300 mb-2">Dark Energy</h3>
+<p class="text-gray-300 text-sm">A mysterious force discovered in 1998 causing accelerated expansion.</p>
+</div>
+</div>
+<div class="card border-blue-500/30 text-center">
+<div class="p-6">
+<i class="w-12 h-12 text-blue-400 mx-auto mb-4" data-lucide="zap"></i>
+<h3 class="text-lg font-bold text-blue-300 mb-2">Precision Cosmology</h3>
+<p class="text-gray-300 text-sm">Modern observations measure H₀ with unprecedented accuracy.</p>
+</div>
+</div>
+<div class="card border-green-500/30 text-center">
+<div class="p-6">
+<i class="w-12 h-12 text-green-400 mx-auto mb-4" data-lucide="users"></i>
+<h3 class="text-lg font-bold text-green-300 mb-2">Astrophysics</h3>
+<p class="text-gray-300 text-sm">Ongoing research reveals new cosmic phenomena across scales.</p>
+</div>
+</div>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="relative">
+<img alt="Space Observatory" class="w-full h-64 object-cover rounded-2xl shadow-2xl" src="https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?w=600"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent rounded-2xl"></div>
+<p class="absolute bottom-4 left-4 text-white font-medium">Modern Space Observatories</p>
+</div>
+<div class="relative">
+<img alt="Galaxy Formation" class="w-full h-64 object-cover rounded-2xl shadow-2xl" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent rounded-2xl"></div>
+<p class="absolute bottom-4 left-4 text-white font-medium">Galaxy Formation Studies</p>
+</div>
+<div class="relative">
+<img alt="Cosmic Web" class="w-full h-64 object-cover rounded-2xl shadow-2xl" src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=600"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent rounded-2xl"></div>
+<p class="absolute bottom-4 left-4 text-white font-medium">Cosmic Web Mapping</p>
+</div>
+</div>
+<div class="mt-20 text-center">
+<div class="card border-purple-500/30 max-w-4xl mx-auto">
+<div class="p-8">
+<h3 class="text-2xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+              The Continuing Journey
+            </h3>
+<p class="text-gray-300 text-lg leading-relaxed">
+              Hubble's Law opened the door to modern cosmology. Scientists continue to study expansion, dark energy, and the universe's fate—each discovery revealing more of our cosmic story.
+            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+
+<!-- References Section -->
+<section class="py-20 px-4 bg-slate-800/30" id="references">
+<div class="max-w-6xl mx-auto">
+<h2 class="text-3xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+        References
+      </h2>
+<ul class="space-y-4 text-gray-300 text-sm leading-relaxed list-none pl-0">
+<li class="pl-6 text-justify relative">
+<span class="absolute left-0">•</span>
+          NASA. (n.d.). <i>NASA image and video library</i>. NASA.
+          <a class="text-blue-400 hover:underline" href="https://images.nasa.gov/" rel="noopener noreferrer" target="_blank">
+            https://images.nasa.gov/
+          </a>
+</li>
+<li class="pl-6 text-justify relative">
+<span class="absolute left-0">•</span>
+          ESA/Hubble. (n.d.). <i>ESA/Hubble space telescope</i>. European Space Agency.
+          <a class="text-blue-400 hover:underline" href="https://esahubble.org/" rel="noopener noreferrer" target="_blank">
+            https://esahubble.org/
+          </a>
+</li>
+<li class="pl-6 text-justify relative">
+<span class="absolute left-0">•</span>
+          NASA Goddard Space Flight Center. (n.d.). <i>Wilkinson Microwave Anisotropy Probe (WMAP)</i>. NASA.
+          <a class="text-blue-400 hover:underline" href="https://map.gsfc.nasa.gov/" rel="noopener noreferrer" target="_blank">
+            https://map.gsfc.nasa.gov/
+          </a>
+</li>
+<li class="pl-6 text-justify relative">
+<span class="absolute left-0">•</span>
+          European Space Agency. (n.d.). <i>Planck mission</i>. ESA.
+          <a class="text-blue-400 hover:underline" href="https://www.esa.int/Science_Exploration/Space_Science/Planck" rel="noopener noreferrer" target="_blank">
+            https://www.esa.int/Science_Exploration/Space_Science/Planck
+          </a>
+</li>
+<li class="pl-6 text-justify relative">
+<span class="absolute left-0">•</span>
+          Wikipedia contributors. (2025, September 20). <i>Hubble’s law</i>. In <i>Wikipedia</i>.
+          <a class="text-blue-400 hover:underline" href="https://en.wikipedia.org/wiki/Hubble%27s_law" rel="noopener noreferrer" target="_blank">
+            https://en.wikipedia.org/wiki/Hubble%27s_law
+          </a>
+</li>
+</ul>
+</div>
+</section>
+<footer class="py-8 px-4 border-t border-slate-700/50">
+<div class="max-w-6xl mx-auto text-center">
+<div class="flex items-center justify-center gap-2 mb-4">
+<i class="w-5 h-5 text-purple-400" data-lucide="telescope"></i>
+<span class="text-lg font-semibold">Hubble's Universe</span>
+</div>
+<p class="text-gray-400 text-sm">Educational resource for understanding the expansion of the universe.</p>
+</div>
+</footer>
+<script>
+    // Icon rendering
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide && lucide.createIcons) lucide.createIcons();
+    });
+
+    // Smooth scroll for nav + CTA
+    document.getElementById('cta').addEventListener('click', () => {
+      document.getElementById('hubbles-law').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    document.querySelectorAll('.navlink').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-target');
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // Scrollspy (active nav link highlight)
+    const sections = ['hubbles-law','evidence','key-figures','modern-discoveries'];
+    const navButtons = Array.from(document.querySelectorAll('.navlink'));
+    const byId = id => navButtons.find(b => b.getAttribute('data-target') === id);
+
+    const setActive = (id) => {
+      navButtons.forEach(b => b.classList.remove('text-purple-400'));
+      const active = byId(id);
+      if (active) active.classList.add('text-purple-400');
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) setActive(entry.target.id);
+      });
+    }, { rootMargin: '-20% 0px -70% 0px', threshold: 0.1 });
+
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+  </script>
+</body>
+</html>
